@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (in case you add tooling later)
+node_modules/
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+
+# Vercel
+.vercel
