@@ -664,8 +664,10 @@
   /* ── responsive ────────────────────────────────────────────────────── */
   @media (max-width: 900px){
     .nav-right a.mono{display:none}
-    .hero-inner{padding:60px 0 70px}
+    .hero{justify-content:flex-start;min-height:auto}
+    .hero-inner{padding:128px 0 80px}
     .hero-grid{grid-template-columns:1fr;gap:48px}
+    .block-body{font-size:16px}
     .hero-aside{order:2}
     .why-inner{grid-template-columns:1fr;gap:32px}
     .why-lede{position:static}
@@ -713,7 +715,7 @@
 
         <h1 class="reveal d1" style="font-size: clamp(48px,6.2vw,84px); font-weight: 700">See Differently.<br />Move Right<span style="color:var(--signal)">.</span></h1>
 
-        <p class="hero-lead reveal d2" style="font-size: 18px; font-weight: 400">What you see shapes what you believe is possible.<br />
+        <p class="hero-lead reveal d2" style="font-size: 19px; font-weight: 400">What you see shapes what you believe is possible.<br />
 What you believe is possible shapes the direction you move.</p>
 
         <h2 class="reveal d2" style="margin-top: 18px; font-size: clamp(14px,1.6vw,19px); max-width: 720px; margin: 18px 0px 15px">Weekly insights to help you see differently and Move Right<span style="color:var(--signal)">.</span></h2>
@@ -928,7 +930,7 @@ Clear vision fuels belief.
   <div class="map-bg" aria-hidden="true"></div>
 
   <div class="wrap">
-    <div class="map-inner" style="width: 840px">
+    <div class="map-inner" style="max-width: 840px">
 
       <p class="mono eyebrow on-dark section-eyebrow reveal">
         <span class="dot" style="margin: 0px 0px 20px"></span><span style="font-size: 16px; margin: 0px 0px 20px">Keep Exploring</span>
