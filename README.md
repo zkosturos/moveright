@@ -5,7 +5,7 @@ Marketing site + waitlist signup for Move Right.
 ## Stack
 
 - Static HTML / CSS (no build step)
-- Forms post to [Kit](https://kit.com) form `9446430`
+- Forms post to [Substack](https://substack.com) (`zkosturos.substack.com`)
 - Hosted on [Vercel](https://vercel.com)
 
 ## Structure
@@ -58,14 +58,21 @@ Every `git push` to `main` triggers a production deploy. Branches and PRs get pr
 
 Project → **Settings → Domains** → add `moveright.me`. Vercel will give you DNS records to add at your registrar. HTTPS provisions automatically.
 
-## Forms (Kit)
+## Forms (Substack)
 
-Both signup forms post to a single Kit form:
-`https://app.kit.com/forms/9446430/subscriptions`
+Both signup forms post to Substack's free-subscribe endpoint for the `zkosturos` publication:
+`https://zkosturos.substack.com/api/v1/free`
 
-The hero form is tagged `data-source="hero"` and the map-section form is tagged `data-source="map"` so you can split signups by location later — for now they flow into the same Kit list.
+The hero form is tagged `data-source="hero"` and the map-section form is tagged `data-source="map"` — that value is passed through to Substack as the signup `source` field, so you can tell later which form a subscriber came from. Both flow into the same Substack list.
 
-To change the form ID, search `index.html` for `9446430` and replace.
+### Notes on the integration
+
+- The request is sent as JSON (`email`, `first_url`, `first_referrer`, `current_url`, `current_referrer`, `referral_code`, `source`) using `fetch` in `no-cors` mode. The response is opaque, which is fine — Substack still records the signup.
+- Subscribers stay on the page; the form swaps to an inline "You're on the list" success state. Substack handles the welcome email.
+- If the network call fails, the page optimistically shows success anyway so the UX never feels broken. The signal that something went wrong is the missing welcome email — test with your own address after any change.
+- `substack.com/api/v1/free` is **undocumented**. It has been stable for years and is what Substack's own embed iframe uses internally, but there's no public SLA. If it ever breaks, the fallback is to switch each form's `action` to `https://zkosturos.substack.com/subscribe` and change the JS handler to redirect with the email as a query param (`window.location = f.action + '?email=' + encodeURIComponent(input.value)`). A breadcrumb comment in `index.html` calls this out.
+
+To change the Substack publication, search `index.html` for `zkosturos.substack.com` and replace.
 
 ## Routing notes
 
