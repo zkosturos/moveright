@@ -296,6 +296,22 @@
   }
   .signup input::placeholder{color:rgba(244,242,238,.45)}
   .signup input:focus{border-color:var(--signal);background:rgba(244,242,238,.09)}
+  /* Post-submit handoff state: form has opened Substack in a new tab and the
+     input now nags the user to go finish over there. */
+  .signup input.handoff-reminder{
+    border-color:var(--signal);
+    background:rgba(232,71,43,.10);
+    animation:handoffPulse 1.8s ease-in-out infinite;
+  }
+  .signup input.handoff-reminder::placeholder{
+    color:var(--bone);
+    opacity:1;
+    font-weight:600;
+  }
+  @keyframes handoffPulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(232,71,43,.55)}
+    50%   {box-shadow:0 0 0 6px rgba(232,71,43,0)}
+  }
   .signup .btn{border-radius:10px;padding:14px 20px}
   .trust{
     display:inline-flex;align-items:center;gap:10px;
@@ -1049,8 +1065,6 @@ Clear vision fuels belief.
 
       e.preventDefault();
       const btn = f.querySelector('button');
-      btn.disabled = true;
-      btn.innerHTML = "Taking you to Substack… <span class='arr'>→</span>";
 
       // Build the handoff URL: email + UTM tags so Substack analytics can
       // tell hero vs map signups apart.
@@ -1059,7 +1073,21 @@ Clear vision fuels belief.
         utm_source: 'moveright.me',
         utm_medium: f.dataset.source || 'signup'
       });
-      window.location.href = f.action + '?' + params.toString();
+      // Open Substack in a NEW tab so the user keeps our page (and our
+      // instructions) in front of them.
+      window.open(f.action + '?' + params.toString(), '_blank', 'noopener');
+
+      // Reset the email field into a big, obvious reminder telling the user
+      // exactly what to do on the tab that just opened. People miss the
+      // second step constantly without this.
+      input.value = '';
+      input.placeholder = '→ Almost done! Click "Subscribe" on the new tab to finish.';
+      input.blur();
+      input.classList.add('handoff-reminder');
+
+      // Match the button so the whole form reads "done on this side".
+      btn.disabled = true;
+      btn.innerHTML = "Finish on the new tab →";
     });
   });
 </script>
