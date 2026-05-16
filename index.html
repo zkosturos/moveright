@@ -36,8 +36,11 @@
 <meta name="twitter:description" content="When we see things differently, believe differently, and move in the right direction. That's what Move Right. is about." />
 <meta name="twitter:image" content="https://moveright.me/assets/og-image.webp" />
 
-<!-- LCP hero preload -->
-<link rel="preload" as="image" type="image/webp" href="assets/hero-coastal-road.webp" fetchpriority="high" />
+<!-- LCP hero preload — responsive: phones get the smaller JPEG, larger screens get the WebP -->
+<link rel="preload" as="image"
+      imagesrcset="assets/hero-coastal-road-mobile.jpg 900w, assets/hero-coastal-road.webp 2752w"
+      imagesizes="100vw"
+      fetchpriority="high" />
 
 <!-- fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -231,10 +234,14 @@
   }
   .hero-bg{
     position:absolute;inset:0;z-index:-2;
-    background-image:url('assets/hero-coastal-road.webp');
-    background-size:cover;
-    background-position:center 40%;
-    background-repeat:no-repeat;
+    display:block;
+    overflow:hidden;
+  }
+  .hero-bg img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center 40%;
+    display:block;
   }
   /* readability overlays — keep the photo, darken for text */
   .hero-bg::after{
@@ -573,6 +580,9 @@
     background-position:center 40%;
     background-repeat:no-repeat;
   }
+  @media (max-width: 768px){
+    .map-bg{background-image:url('images/opt-in-mobile.jpg')}
+  }
   .map-bg::after{
     content:"";position:absolute;inset:0;
     background:
@@ -710,7 +720,10 @@
 
 <!-- ────────────────────────────── HERO ───────────────────────────── -->
 <section class="hero" id="top" data-screen-label="01 Hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <picture class="hero-bg" aria-hidden="true">
+    <source media="(max-width: 768px)" srcset="assets/hero-coastal-road-mobile.jpg" />
+    <img src="assets/hero-coastal-road.webp" alt="" fetchpriority="high" decoding="async" />
+  </picture>
 
 
   <div class="wrap hero-inner">
