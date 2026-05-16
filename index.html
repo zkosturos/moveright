@@ -36,11 +36,11 @@
 <meta name="twitter:description" content="When we see things differently, believe differently, and move in the right direction. That's what Move Right. is about." />
 <meta name="twitter:image" content="https://moveright.me/assets/og-image.webp" />
 
-<!-- LCP hero preload — responsive: phones get the smaller JPEG, larger screens get the WebP -->
-<link rel="preload" as="image"
-      imagesrcset="assets/hero-coastal-road-mobile.jpg 900w, assets/hero-coastal-road.webp 2752w"
-      imagesizes="100vw"
-      fetchpriority="high" />
+<!-- LCP hero preload — gated by media query so each device only preloads its own image -->
+<link rel="preload" as="image" href="assets/hero-coastal-road-mobile.jpg"
+      media="(max-width: 768px)" fetchpriority="high" />
+<link rel="preload" as="image" type="image/webp" href="assets/hero-coastal-road.webp"
+      media="(min-width: 769px)" fetchpriority="high" />
 
 <!-- fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
