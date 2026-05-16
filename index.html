@@ -42,10 +42,12 @@
 <link rel="preload" as="image" type="image/webp" href="assets/hero-coastal-road.webp"
       media="(min-width: 769px)" fetchpriority="high" />
 
-<!-- fonts -->
+<!-- fonts — loaded non-blocking via media="print" + onload swap, so the page paints immediately in a system fallback and upgrades when ready -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
 
 <!-- structured data -->
 <script type="application/ld+json">
