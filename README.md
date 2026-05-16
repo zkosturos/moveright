@@ -60,17 +60,17 @@ Project → **Settings → Domains** → add `moveright.me`. Vercel will give yo
 
 ## Forms (Substack)
 
-Both signup forms post to Substack's free-subscribe endpoint for the `zkosturos` publication:
-`https://zkosturos.substack.com/api/v1/free`
+Both signup forms hand the user off to Substack's hosted subscribe page for the `zkosturos` publication:
+`https://zkosturos.substack.com/subscribe`
 
-The hero form is tagged `data-source="hero"` and the map-section form is tagged `data-source="map"` — that value is passed through to Substack as the signup `source` field, so you can tell later which form a subscriber came from. Both flow into the same Substack list.
+The hero form is tagged `data-source="hero"` and the map-section form is tagged `data-source="map"` — that value is passed through to Substack as `utm_medium` on the handoff URL, so you can tell later in Substack analytics which form a subscriber came from. Both flow into the same Substack list.
 
-### Notes on the integration
+### How the handoff works
 
-- The request is sent as JSON (`email`, `first_url`, `first_referrer`, `current_url`, `current_referrer`, `referral_code`, `source`) using `fetch` in `no-cors` mode. The response is opaque, which is fine — Substack still records the signup.
-- Subscribers stay on the page; the form swaps to an inline "You're on the list" success state. Substack handles the welcome email.
-- If the network call fails, the page optimistically shows success anyway so the UX never feels broken. The signal that something went wrong is the missing welcome email — test with your own address after any change.
-- `substack.com/api/v1/free` is **undocumented**. It has been stable for years and is what Substack's own embed iframe uses internally, but there's no public SLA. If it ever breaks, the fallback is to switch each form's `action` to `https://zkosturos.substack.com/subscribe` and change the JS handler to redirect with the email as a query param (`window.location = f.action + '?email=' + encodeURIComponent(input.value)`). A breadcrumb comment in `index.html` calls this out.
+- The forms are native `<form method="get" action="https://zkosturos.substack.com/subscribe">` elements with an `<input name="email">`. A small JS handler intercepts the submit, swaps the button to a "Taking you to Substack…" state, and redirects to `https://zkosturos.substack.com/subscribe?email=<email>&utm_source=moveright.me&utm_medium=<hero|map>`.
+- Substack's subscribe page picks up the prefilled email, the subscriber confirms with one click, and Substack sends the welcome email.
+- If JavaScript is disabled, the native form still submits as a GET to the same URL and works identically — just without the button-state polish.
+- No third-party API call, no opaque responses, no undocumented endpoints. The tradeoff is that subscribers see one Substack-branded page before they're done.
 
 To change the Substack publication, search `index.html` for `zkosturos.substack.com` and replace.
 
