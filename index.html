@@ -1081,13 +1081,13 @@ Clear vision fuels belief.
       // exactly what to do on the tab that just opened. People miss the
       // second step constantly without this.
       input.value = '';
-      input.placeholder = '→ Almost done! Click "Subscribe" on the new tab to finish.';
+      input.placeholder = 'Did you Subscribe on the page that opened?';
       input.blur();
       input.classList.add('handoff-reminder');
 
       // Match the button so the whole form reads "done on this side".
       btn.disabled = true;
-      btn.innerHTML = "Finish on the new tab →";
+      btn.innerHTML = "Check the new tab →";
     });
   });
 </script>
