@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Move Right - See Differently. Move Differently.</title>
-<meta name="description" content="Move Right explores the questions, assumptions, patterns, and truths that shape the direction of our lives, and which actually lead us right." />
+<title>Move Right - Pursuing Possibility</title>
+<meta name="description" content="For people who are more interested in pursuing what's possible than in accepting what's normal." />
+<meta name="author" content="Zach Kosturos" />
 
 <!-- canonical + crawler hints -->
 <link rel="canonical" href="https://moveright.me/" />
@@ -19,28 +20,26 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Move Right" />
-<meta property="og:title" content="Move Right - See Differently. Move Differently." />
-<meta property="og:description" content="Move Right explores the questions, assumptions, patterns, and truths that shape the direction of our lives, and which actually lead us right." />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Move Right - Pursuing Possibility" />
+<meta property="og:description" content="For people who are more interested in pursuing what's possible than in accepting what's normal." />
 <meta property="og:url" content="https://moveright.me/" />
 <meta property="og:image" content="https://moveright.me/assets/og-image.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Move Right - See Differently. Move Differently." />
+<meta property="og:image:alt" content="Move Right - Pursuing Possibility" />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@zkosturos" />
 <meta name="twitter:creator" content="@zkosturos" />
-<meta name="twitter:title" content="Move Right - See Differently. Move Differently." />
-<meta name="twitter:description" content="Move Right explores the questions, assumptions, patterns, and truths that shape the direction of our lives, and which actually lead us right." />
+<meta name="twitter:title" content="Move Right - Pursuing Possibility" />
+<meta name="twitter:description" content="For people who are more interested in pursuing what's possible than in accepting what's normal." />
 <meta name="twitter:image" content="https://moveright.me/assets/og-image.png" />
 
-<!-- LCP hero preload - gated by media query so each device only preloads its own image -->
-<link rel="preload" as="image" href="assets/hero-coastal-road-mobile.jpg"
-      media="(max-width: 768px)" fetchpriority="high" />
-<link rel="preload" as="image" type="image/webp" href="assets/hero-coastal-road.webp"
-      media="(min-width: 769px)" fetchpriority="high" />
+<!-- LCP hero preload -->
+<link rel="preload" as="image" href="assets/hero.webp" type="image/webp" fetchpriority="high" />
 
 <!-- fonts - loaded non-blocking via media="print" + onload swap, so the page paints immediately in a system fallback and upgrades when ready -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,8 +57,8 @@
       "@type": "WebSite",
       "@id": "https://moveright.me/#website",
       "url": "https://moveright.me/",
-      "name": "Move Right Newsletter",
-      "description": "Move Right explores the questions, assumptions, patterns, and truths that shape the direction of our lives, and which actually lead us right.",
+      "name": "Move Right",
+      "description": "For people who are more interested in pursuing what's possible than in accepting what's normal.",
       "inLanguage": "en-US",
       "publisher": { "@id": "https://moveright.me/#person" }
     },
@@ -264,9 +263,23 @@
   }
   .hero-grid{
     display:grid;
-    grid-template-columns:minmax(0,1100px);
+    grid-template-columns:minmax(0,1fr);
     gap:64px;
     align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  .hero-grid .hero-eyebrow,
+  .hero-grid .trust{
+    justify-content:center;
+  }
+  .hero-grid .hero-lead{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .hero-grid .signup{
+    margin-left:auto;
+    margin-right:auto;
   }
   .hero-eyebrow{margin-bottom:28px}
   .hero-eyebrow .sep{margin:0 10px}
@@ -371,6 +384,7 @@
     align-items:start;
   }
   .why-lede{position:sticky;top:120px;align-self:start}
+  .why-body{align-self:center}
   .why-lede h2{
     margin:0;
     font-size:clamp(34px,3.8vw,44px);
@@ -560,10 +574,10 @@
     position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(15,14,16,.45) 0%, rgba(15,14,16,.15) 35%, rgba(15,14,16,.55) 75%, rgba(15,14,16,.85) 100%);
   }
-  .ccard.c-youtube   .cbg{background-image:url('images/card-questions.jpg');background-position:center 35%;transform:scaleX(-1)}
-  .ccard.c-podcast   .cbg{background-image:url('images/card-assumptions.jpg');background-position:center}
-  .ccard.c-x         .cbg{background-image:url('images/card-patterns.jpg');background-position:center 60%;transform:scaleX(-1)}
-  .ccard.c-instagram .cbg{background-image:url('images/card-clarity.jpg');background-position:center 45%;transform:scaleX(-1)}
+  .ccard.c-youtube   .cbg{background-image:url('images/card-questions.webp');background-position:center 35%}
+  .ccard.c-podcast   .cbg{background-image:url('images/card-assumptions.webp');background-position:center}
+  .ccard.c-x         .cbg{background-image:url('images/card-patterns.webp');background-position:center 60%}
+  .ccard.c-instagram .cbg{background-image:url('images/card-clarity.webp');background-position:center 45%}
   .ccard.c-podcast   .cbg::after{background:linear-gradient(180deg, rgba(15,14,16,.55) 0%, rgba(15,14,16,.25) 35%, rgba(15,14,16,.65) 75%, rgba(15,14,16,.9) 100%)}
   .ccard.c-instagram .cbg::after{background:linear-gradient(180deg, rgba(15,14,16,.55) 0%, rgba(15,14,16,.25) 35%, rgba(15,14,16,.65) 75%, rgba(15,14,16,.9) 100%)}
   .ccard .photo-label{display:none}
@@ -728,7 +742,8 @@
     .foot-social{justify-content:center}
   }
   @media (max-width: 900px){
-    .hero h1{font-size:clamp(36px,7.2vw,52px) !important}
+    .hero h1{font-size:clamp(36px,7.2vw,52px) !important;width:100% !important}
+    .hero .trust{flex-wrap:wrap;justify-content:center;max-width:560px;margin-left:auto;margin-right:auto;font-size:12px}
   }
 </style>
 
@@ -756,8 +771,7 @@
 <!-- ────────────────────────────── HERO ───────────────────────────── -->
 <section class="hero" id="top" data-screen-label="01 Hero">
   <picture class="hero-bg" aria-hidden="true">
-    <source media="(max-width: 768px)" srcset="assets/hero-coastal-road-mobile.jpg" />
-    <img src="assets/hero-coastal-road.webp" alt="" fetchpriority="high" decoding="async" />
+    <img src="assets/hero.webp" alt="" fetchpriority="high" decoding="async" />
   </picture>
 
 
@@ -768,27 +782,26 @@
       <div>
         <p class="mono eyebrow on-dark hero-eyebrow reveal">
           <span class="dot"></span>
-          <span>THE WEEKLY QUESTION</span>
+          <span style="font-size: 16px">MOVE RIGHT WEEKLY</span>
         </p>
 
-        <h1 class="reveal d1" style="font-size: clamp(40px,5.8vw,76px); font-weight: 700; line-height: 1.04; letter-spacing: -0.02em">We're all moving<span style="color:var(--signal)">.</span><br /><span>Is it in the right direction?</span></h1>
+        <h1 class="reveal d1" style="font-size: clamp(40px,6.4vw,80px); font-weight: 700; line-height: 1.04; letter-spacing: -0.02em; width: 100%; margin-left: auto; margin-right: auto">When what we want isn't normal, what we do can't be either<span style="color:var(--signal)">.</span></h1>
 
-        <p class="hero-lead reveal d2" style="font-size: 19px; font-weight: 400">Move Right is where I explore the questions, assumptions, patterns, and truths that shape the direction of our lives.</p>
-        <p class="hero-lead reveal d2" style="font-size: 19px; font-weight: 400; margin-top: 12px; margin-bottom: 10px">One thoughtful email each week exploring an idea, assumption, or question worth thinking about.</p>
+        <p class="hero-lead reveal d2" style="font-size: 21px; font-weight: 400; max-width: 100%">One weekly email for people who want more than default outcomes.</p>
 
         <form class="signup reveal d3" id="hero-form"
               action="https://letters.moveright.me/subscribe"
               method="get"
               data-source="hero">
           <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required style="border-radius: 5px; margin: 0px" />
-          <button class="btn" type="submit" style="border-radius: 5px">Get The Weekly Question →</button>
+          <button class="btn" type="submit" style="border-radius: 5px">Subscribe →</button>
         </form>
 
         <p class="mono trust reveal d3">
           <span class="dot sm"></span>
-          <span>Free</span><span class="sep">•</span>
-          <span>No spam</span><span class="sep">•</span>
-          <span>Unsubscribe any time</span>
+          <span style="font-size: 14px">Free</span><span class="sep">•</span>
+          <span style="font-size: 14px">No spam</span><span class="sep">•</span>
+          <span style="font-size: 14px">Unsubscribe any time</span>
         </p>
       </div>
 
@@ -802,27 +815,23 @@
     <div class="why-inner">
       <div class="why-lede">
         <p class="mono eyebrow section-eyebrow reveal">
-          <span class="dot"></span><span style="font-weight: 400; font-size: 16px">THE NOISE</span>
+          <span class="dot"></span><span style="font-weight: 400; font-size: 16px">THE REALITY</span>
         </p>
-        <h2 class="reveal d1">We live in a world full of opinions, certainty, distraction, and noise.</h2>
+        <h2 class="reveal d1">If we do what everyone else does, we get what everyone else gets<span style="color:#e8472b">.</span></h2>
 
         <div class="why-mark reveal d3" aria-hidden="true">
-          <span class="label">THE GUIDE</span>
+          <span class="label">MOVE RIGHT</span>
           <span class="line"></span>
           <span class="star"></span>
         </div>
       </div>
 
       <div class="why-body">
-        <p class="reveal d2" style="font-weight: 400">Every day, we're bombarded with messages about what matters, what success looks like, what to pursue, what to fear, what to optimize, and who to become.</p>
+        <p class="reveal d2" style="font-weight: 400">If we want something different, we must think, believe, be, and do something different.</p>
 
-        <p class="reveal d2" style="font-weight: 400">Some of it's true.
-Some of it's partially true.
-Some of it quietly pulls us in the wrong direction.</p>
+        <p class="reveal d2" style="font-weight: 400">We must question the default assumptions and judge the ideas we're constantly being sold by their outcomes.</p>
 
-        <p class="reveal d2" style="font-weight: 400">Most people never stop long enough to examine the assumptions underneath the life they&rsquo;re building.</p>
-
-        <p class="reveal d2" style="font-weight: 400">But assumptions shape belief.<br />Belief shapes action.<br />And action shapes direction.</p>
+        <p class="reveal d2" style="font-weight: 400">And that's what <strong>Move Right<span style="color:#e8472b">.</span></strong> is all about.</p>
       </div>
     </div>
   </div>
@@ -841,13 +850,15 @@ Some of it quietly pulls us in the wrong direction.</p>
         <p class="mono eyebrow section-eyebrow reveal">
           <span class="dot"></span><span style="font-weight: 400; font-size: 16px">ABOUT ME</span>
         </p>
-        <h2 class="reveal d1">I'm Zach. Believer, husband, father, entrepreneur and investor.</h2>
+        <h2 class="reveal d1">I'm Zach<span style="color:#e8472b">.</span></h2>
 
-        <p class="reveal d2">For almost 20 years, I've been building businesses, investing, solving problems, and trying to discern what actually creates meaningful outcomes in life and work.</p>
+        <p class="reveal d2">I got married when I was 20. I bought a business when I was 25, in the heart of the Great Recession. My wife and I are about to bring home our sixth child. Four years ago, we left everything we knew and moved to Montana. Last year, we moved again, this time to Florida. </p>
 
-        <p class="reveal d2">Over that time, it's become increasingly clear to me that where we go is determined by what we see as possible and believe to be true.</p>
+        <p class="reveal d2">There's not much we do that fits in "the box". Because, for as long as I can remember, "the box" never sounded that good to me. I have always been interested in what's possible more than what's normal. </p>
 
-        <p class="reveal d2"><strong>Move Right<span style="color:rgb(232, 71, 43)">.</span></strong> is the place where I share the questions I'm wrestling with, the assumptions I'm challenging, and the patterns I'm recognizing across the most important parts of life.</p>
+        <p class="reveal d2">And that's why I started <strong>Move Right<span style="color:#e8472b">.</span></strong></p>
+
+        <p class="reveal d2">To think publicly about which ideas and ways of living and being lead greater possibilities, and which ones don't.</p>
       </div>
     </div>
   </div>
@@ -874,8 +885,8 @@ Some of it quietly pulls us in the wrong direction.</p>
         <p class="mono eyebrow jake-eyebrow reveal">
           <span class="dot"></span><span>About Jake</span>
         </p>
-        <h3 class="reveal d1" style="margin: 28px 0px 14px">Jake is part of the ongoing conversations and exploration behind Move Right<span style="color:rgb(232, 71, 43)">.</span></h3>
-        <p class="reveal d2">His perspective, curiosity, and thoughtful questions help sharpen ideas, challenge assumptions, and keep the conversations grounded and honest. <strong>Move Right<span style="color:rgb(232, 71, 43)">.</span></strong> is better because he&rsquo;s part of it.</p>
+        <h3 class="reveal d1" style="margin: 28px 0px 14px">Jake is part of the ongoing conversations and mission behind Move Right<span style="color:#e8472b">.</span></h3>
+        <p class="reveal d2">His perspective, curiosity, and real-life pursuits help sharpen ideas, challenge assumptions, and keep the conversations relevant and honest. <strong>Move Right<span style="color:#e8472b">.</span></strong> is better because he’s part of it.</p>
       </div>
     </div>
 
@@ -888,10 +899,10 @@ Some of it quietly pulls us in the wrong direction.</p>
 
     <div class="connect-head">
       <p class="mono eyebrow section-eyebrow reveal">
-        <span class="dot"></span><span style="font-size: 16px">WHAT WE EXPLORE</span>
+        <span class="dot"></span><span style="font-size: 16px">WHAT WE LOOK FOR</span>
       </p>
-      <h2 class="reveal d1">We explore the questions, assumptions, patterns, and perspectives that shape the direction of life.</h2>
-      <p class="intro reveal d2">Across self, faith, relationships, health, work, money, and time. We're always exploring what helps us move in the right direction.</p>
+      <h2 class="reveal d1">We look for what leads to uncommon outcomes<span style="color:#e8472b">.</span></h2>
+      <p class="intro reveal d2">Across self, faith, relationships, health, work, money, and time, we’re searching for what leads to a life marked by realizing what's possible instead of what's normal.</p>
     </div>
 
     <div class="connect-grid">
@@ -900,44 +911,44 @@ Some of it quietly pulls us in the wrong direction.</p>
       <a class="ccard c-youtube reveal" href="#map">
         <span class="cbg" aria-hidden="true"></span>
         <span class="photo-label mono">[ YouTube - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>QUESTIONS</span></p>
-        <h3>Questions Worth Wrestling With<span style="color:rgb(232, 71, 43)">.</span></h3>
-        <p>The deeper questions underneath ambition, identity, leadership, meaning, faith, and modern life.</p>
-        <span class="cta">Explore The Questions
-<span class="arr">→</span></span>
+        <p class="mono eyebrow label"><span class="dot"></span><span>DESTINATION</span></p>
+        <h3>Decide Where You're Trying To Go.</h3>
+        <p>Stop and ask where you are actually trying to go.  If it's somewhere most don't, your plan has to change.</p>
+        <span class="cta">Define The Destination
+→</span>
       </a>
 
       <!-- Podcast -->
       <a class="ccard c-podcast reveal d1" href="#map">
         <span class="cbg" aria-hidden="true"></span>
         <span class="photo-label mono">[ Podcast - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>ASSUMPTIONS</span></p>
-        <h3>Assumptions Worth Examining<span style="color:rgb(232, 71, 43)">.</span></h3>
-        <p>Many of the outcomes we experience are downstream from ideas we’ve never stopped to question.</p>
-        <span class="cta">Challenge The Assumptions
-<span class="arr">→</span></span>
+        <p class="mono eyebrow label"><span class="dot"></span><span>DIRECTION</span></p>
+        <h3>Examine The Direction You’re Moving.</h3>
+        <p>Discern where your current thinking, believing, being, and doing is holding you back from what's possible?</p>
+        <span class="cta">Examine The Direction
+→</span>
       </a>
 
       <!-- X -->
       <a class="ccard c-x reveal d2" href="#map">
         <span class="cbg" aria-hidden="true"></span>
         <span class="photo-label mono">[ X - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>PATTERNS</span></p>
-        <h3>Patterns Worth Noticing<span style="color:rgb(232, 71, 43)">.</span></h3>
-        <p>Across faith, relationships, health, work, money, time, and self, certain patterns repeat. Seeing them changes how we move.</p>
-        <span class="cta">Notice The Patterns
-<span class="arr">→</span></span>
+        <p class="mono eyebrow label"><span class="dot"></span><span>DISCERNMENT</span></p>
+        <h3>Find What Actually Works.</h3>
+        <p>Some ways of thinking and living consistently lead somewhere better. Learn to recognize them.</p>
+        <span class="cta">Find What Leads To The Destination
+→</span>
       </a>
 
       <!-- Instagram -->
       <a class="ccard c-instagram reveal d3" href="#map">
         <span class="cbg" aria-hidden="true"></span>
         <span class="photo-label mono">[ Instagram - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>CLARITY</span></p>
-        <h3>Clearer Ways Of Seeing<span style="color:rgb(232, 71, 43)">.</span></h3>
-        <p>Not simplistic answers or certainty theater. Just thoughtful exploration in pursuit of truth, clarity and the right direction.</p>
-        <span class="cta">See More Clearly
-<span class="arr">→</span></span>
+        <p class="mono eyebrow label"><span class="dot"></span><span>ACTION</span></p>
+        <h3>Move Decisively.</h3>
+        <p>Start your journey, moving in the right direction, toward what's possible.</p>
+        <span class="cta">Move Right
+→</span>
       </a>
 
     </div>
@@ -949,29 +960,29 @@ Some of it quietly pulls us in the wrong direction.</p>
   <div class="map-bg" aria-hidden="true"></div>
 
   <div class="wrap">
-    <div class="map-inner" style="max-width: 840px">
+    <div class="map-inner" style="max-width: 1040px">
 
       <p class="mono eyebrow on-dark section-eyebrow reveal">
-        <span class="dot" style="margin: 0px 0px 20px"></span><span style="font-size: 16px; margin: 0px 0px 20px">MOVE RIGHT</span>
+        <span class="dot" style="margin: 0px 0px 20px"></span><span style="font-size: 16px; margin: 0px 0px 20px">MOVE RIGHT WEEKLY</span>
       </p>
 
-      <h2 class="reveal d1" style="margin: 0px 0px 32px">We’re all moving. The question is whether we’re moving in the right direction<span style="color:rgb(232, 71, 43)">.</span></h2>
+      <h2 class="reveal d1" style="margin: 0px 0px 32px; font-size: clamp(34px,5.2vw,64px); line-height: 1.05; letter-spacing: -0.02em">When what we want isn't normal, what we do can't be either<span style="color:rgb(232, 71, 43)">.</span></h2>
 
-      <p class="reveal d2" style="margin: 0px auto 28px">Join The Weekly Question and get one thoughtful email each week to help you see more clearly, question what matters, and move with greater intention.</p>
+      <p class="reveal d2" style="margin: 0px auto 28px; font-size: 20px">One weekly email for people who want more than default outcomes.</p>
 
       <form class="signup reveal d3" id="map-form"
             action="https://letters.moveright.me/subscribe"
             method="get"
             data-source="map">
         <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required />
-        <button class="btn" type="submit" style="padding: 14px 20px; margin: 0px">Get The Weekly Question →</button>
+        <button class="btn" type="submit" style="padding: 14px 20px; margin: 0px">Subscribe →</button>
       </form>
 
       <p class="mono trust reveal d3">
         <span class="dot sm"></span>
-        <span>Free</span><span class="sep">•</span>
-        <span>No spam</span><span class="sep">•</span>
-        <span>Unsubscribe any time</span>
+        <span style="font-size: 14px">Free</span><span class="sep">•</span>
+        <span style="font-size: 14px">No spam</span><span class="sep">•</span>
+        <span style="font-size: 14px">Unsubscribe any time</span>
       </p>
 
     </div>
@@ -986,9 +997,9 @@ Some of it quietly pulls us in the wrong direction.</p>
     <div class="mono foot-center">
       <span>© 2026 Move Right</span>
       <span class="sep">•</span>
-      <a href="privacy.html">Privacy</a>
+      <a href="/privacy">Privacy</a>
       <span class="sep">•</span>
-      <a href="terms.html">Terms</a>
+      <a href="/terms">Terms</a>
     </div>
 
     <div class="foot-social">
