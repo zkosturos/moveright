@@ -5,14 +5,14 @@ Marketing site + waitlist signup for Move Right.
 ## Stack
 
 - Static HTML / CSS (no build step)
-- Forms post to [Substack](https://substack.com) (`zkosturos.substack.com`)
+- Single "Join Us Thursday" / "Save My Seat" CTA points to the current [Luma](https://luma.com) event
 - Hosted on [Vercel](https://vercel.com)
 
 ## Structure
 
 ```
 moveright/
-├── index.html         ← homepage (waitlist + about + map opt-in)
+├── index.html         ← homepage (hero + fork + how it works + about + Luma CTA)
 ├── privacy.html       ← /privacy
 ├── terms.html         ← /terms
 ├── assets/            ← favicon, logos, hero image, OG image
@@ -58,23 +58,24 @@ Every `git push` to `main` triggers a production deploy. Branches and PRs get pr
 
 Project → **Settings → Domains** → add `moveright.me`. Vercel will give you DNS records to add at your registrar. HTTPS provisions automatically.
 
-## Forms (Substack)
+## Event signup (Luma)
 
-Both signup forms hand the user off to your Substack publication served on your own custom domain:
-`https://letters.moveright.me/subscribe`
+There are no forms on the site. Every "Join Us Thursday" and "Save My Seat" button
+links to the current week's Luma event. All of them are class `cta-luma` and are
+pointed at a single source of truth.
 
-The custom domain (`letters.moveright.me`) is mapped to the `zkosturos` Substack publication via a CNAME pointing at `target.substack-custom-domains.com`. Substack serves the subscribe page, all published posts, and the archive on that subdomain — readers never see a `*.substack.com` URL.
+### Updating the event weekly (the one thing to remember)
 
-The hero form is tagged `data-source="hero"` and the map-section form is tagged `data-source="map"` — that value is passed through to Substack as `utm_medium` on the handoff URL, so you can tell later in Substack analytics which form a subscriber came from. Both flow into the same Substack list.
+Open `index.html`, find the `LUMA_URL` constant in the `<script>` near the bottom:
 
-### How the handoff works
+```js
+const LUMA_URL = "https://luma.com/xxxxxxxx";
+```
 
-- The forms are native `<form method="get" action="https://letters.moveright.me/subscribe">` elements with an `<input name="email">`. A small JS handler intercepts the submit, swaps the button to a "Taking you to Substack…" state, and redirects to `https://letters.moveright.me/subscribe?email=<email>&utm_source=moveright.me&utm_medium=<hero|map>`.
-- Substack's subscribe page picks up the prefilled email, the subscriber confirms with one click, and Substack sends the welcome email.
-- If JavaScript is disabled, the native form still submits as a GET to the same URL and works identically — just without the button-state polish.
-- Because the destination is `letters.moveright.me`, the URL bar stays on-brand throughout. No third-party API call, no opaque responses, no undocumented endpoints.
-
-To change the Substack publication or custom domain, search `index.html` for `letters.moveright.me` and replace.
+Replace it with the next gathering's Luma URL, commit, and push. A small script
+rewrites every `.cta-luma` link's `href` on load, so updating that one line updates
+every button on the page. (The buttons also carry the URL inline as a no-JS fallback,
+so for a belt-and-suspenders update you can find/replace the old URL across the file.)
 
 ## Routing notes
 

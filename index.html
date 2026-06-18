@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Move Right - Pursuing Possibility</title>
-<meta name="description" content="For people who are more interested in pursuing what's possible than in accepting what's normal." />
+<title>Move Right - What's Your Next Move?</title>
+<meta name="description" content="Your next move matters. Move Right is where leaders and entrepreneurs come to discern their next right move." />
 <meta name="author" content="Zach Kosturos" />
 
 <!-- canonical + crawler hints -->
@@ -21,25 +21,25 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Move Right" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:title" content="Move Right - Pursuing Possibility" />
-<meta property="og:description" content="For people who are more interested in pursuing what's possible than in accepting what's normal." />
+<meta property="og:title" content="Move Right - What's Your Next Move?" />
+<meta property="og:description" content="Your next move matters. Move Right is where leaders and entrepreneurs come to discern their next right move." />
 <meta property="og:url" content="https://moveright.me/" />
 <meta property="og:image" content="https://moveright.me/assets/og-image.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Move Right - Pursuing Possibility" />
+<meta property="og:image:alt" content="Move Right - What's Your Next Move?" />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@zkosturos" />
 <meta name="twitter:creator" content="@zkosturos" />
-<meta name="twitter:title" content="Move Right - Pursuing Possibility" />
-<meta name="twitter:description" content="For people who are more interested in pursuing what's possible than in accepting what's normal." />
+<meta name="twitter:title" content="Move Right - What's Your Next Move?" />
+<meta name="twitter:description" content="Your next move matters. Move Right is where leaders and entrepreneurs come to discern their next right move." />
 <meta name="twitter:image" content="https://moveright.me/assets/og-image.png" />
 
 <!-- LCP hero preload -->
-<link rel="preload" as="image" href="assets/hero.webp" type="image/webp" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/hero-fork.jpg" type="image/jpeg" fetchpriority="high" />
 
 <!-- fonts - loaded non-blocking via media="print" + onload swap, so the page paints immediately in a system fallback and upgrades when ready -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,7 +58,7 @@
       "@id": "https://moveright.me/#website",
       "url": "https://moveright.me/",
       "name": "Move Right",
-      "description": "For people who are more interested in pursuing what's possible than in accepting what's normal.",
+      "description": "Your next move matters. Move Right is where leaders and entrepreneurs come to discern their next right move.",
       "inLanguage": "en-US",
       "publisher": { "@id": "https://moveright.me/#person" }
     },
@@ -137,7 +137,7 @@
   .dot.sm{width:6px;height:6px;box-shadow:0 0 5px 1px rgba(232,71,43,.55)}
 
   /* red bullet separators - render as real dots so they match .dot */
-  .hero-eyebrow .sep,
+  .eyebrow .sep,
   .trust .sep,
   .foot-center .sep{
     display:inline-block;
@@ -243,6 +243,7 @@
     width:100%;height:100%;
     object-fit:cover;
     object-position:center 40%;
+    transform:scaleX(-1);
     display:block;
   }
   /* readability overlays - keep the photo, darken for text */
@@ -250,8 +251,8 @@
     content:"";
     position:absolute;inset:0;
     background:
-      linear-gradient(90deg, rgba(15,14,16,.86) 0%, rgba(15,14,16,.55) 45%, rgba(15,14,16,.18) 80%, rgba(15,14,16,.05) 100%),
-      linear-gradient(180deg, rgba(15,14,16,.45) 0%, rgba(15,14,16,.15) 30%, rgba(15,14,16,.20) 70%, rgba(15,14,16,.55) 100%);
+      radial-gradient(115% 70% at 50% 40%, rgba(15,14,16,.50) 0%, rgba(15,14,16,.20) 50%, rgba(15,14,16,0) 78%),
+      linear-gradient(180deg, rgba(15,14,16,.58) 0%, rgba(15,14,16,.34) 24%, rgba(15,14,16,.22) 50%, rgba(15,14,16,.14) 70%, rgba(15,14,16,.42) 100%);
   }
   .hero-photo-label{
     position:absolute;right:24px;bottom:18px;z-index:1;
@@ -277,88 +278,36 @@
     margin-left:auto;
     margin-right:auto;
   }
-  .hero-grid .signup{
-    margin-left:auto;
-    margin-right:auto;
+  .hero-grid .hero-cta{
+    justify-content:center;
   }
   .hero-eyebrow{margin-bottom:28px}
   .hero-eyebrow .sep{margin:0 10px}
   h1 .soft{color:var(--bone)}
   .hero-lead{
     font-size:clamp(19px,1.6vw,21px);
-    line-height:1.45;
+    line-height:1.5;
     color:var(--bone);
-    max-width:560px;
-    margin:34px 0 28px;
+    max-width:640px;
+    margin:34px 0 32px;
     font-weight:400;
   }
-  .signup{
-    display:flex;gap:10px;
-    max-width:560px;
+  .hero-lead .accent{color:var(--bone);font-weight:600}
+
+  /* hero CTA pair */
+  .hero-cta{
+    display:flex;gap:14px;flex-wrap:wrap;
     margin-top:8px;
   }
-  .signup input{
-    flex:1;min-width:0;
-    background:rgba(244,242,238,.06);
-    border:1px solid rgba(244,242,238,.18);
-    color:var(--bone);
-    font:500 15px/1 'Inter Tight';
-    padding:14px 16px;
-    border-radius:8px;
-    outline:none;
-    transition:border-color .2s ease, background .2s ease;
-  }
-  .signup input::placeholder{color:rgba(244,242,238,.45)}
-  .signup input:focus{border-color:var(--signal);background:rgba(244,242,238,.09)}
-  /* Post-submit handoff state: form has opened Substack in a new tab and the
-     input now nags the user to go finish over there. */
-  .signup input.handoff-reminder{
-    border-color:var(--signal);
-    background:rgba(232,71,43,.10);
-    animation:handoffPulse 1.8s ease-in-out infinite;
-  }
-  .signup input.handoff-reminder::placeholder{
-    color:var(--bone);
-    opacity:1;
-    font-weight:600;
-  }
-  @keyframes handoffPulse{
-    0%,100%{box-shadow:0 0 0 0 rgba(232,71,43,.55)}
-    50%   {box-shadow:0 0 0 6px rgba(232,71,43,0)}
-  }
-  .signup .btn{border-radius:10px;padding:14px 20px}
+  .hero-cta .btn{padding:16px 28px;font-size:16px;border-radius:8px}
+  .hero-cta .btn.ghost{padding:16px 26px;font-size:16px;border-radius:8px}
+
   .trust{
     display:inline-flex;align-items:center;gap:10px;
-    margin-top:18px;
+    margin-top:32px;
     color:var(--bone);
   }
   .trust .sep{color:var(--signal)}
-
-  /* hero aside - three locked blocks */
-  .hero-aside{
-    display:flex;flex-direction:column;gap:34px;
-    padding:32px 28px;
-    border-radius:9px;
-    background:rgba(244,242,238,.04);
-    border:1px solid rgba(244,242,238,.10);
-    backdrop-filter:blur(8px);
-  }
-  .block-title{
-    color:var(--bone);
-    font-size:13px;
-    font-weight:400;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    font-family:'JetBrains Mono';
-    display:inline-flex;align-items:center;gap:9px;
-    margin-bottom:10px;
-  }
-  .block-body{
-    font-size:15px;line-height:1.55;
-    color:var(--bone);
-    margin:0;
-    font-weight:400;
-  }
 
   /* ── generic light section ─────────────────────────────────────────── */
   section.light{
@@ -376,7 +325,7 @@
   }
   .section-eyebrow{margin-bottom:28px}
 
-  /* ── Why this exists ───────────────────────────────────────────────── */
+  /* ── Fork in the road (was: why) ───────────────────────────────────── */
   .why-inner{
     display:grid;
     grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
@@ -433,7 +382,92 @@
     max-width:520px;
   }
 
-  /* ── About ─────────────────────────────────────────────────────────── */
+  /* fork bullet list */
+  .fork-list{
+    list-style:none;
+    margin:6px 0 0;
+    padding:0;
+    display:flex;flex-direction:column;gap:14px;
+    max-width:560px;
+  }
+  .fork-list li{
+    position:relative;
+    padding-left:26px;
+    font-size:18px;line-height:1.5;
+    color:var(--ink);
+  }
+  .fork-list li::before{
+    content:"";
+    position:absolute;left:2px;top:.6em;
+    width:7px;height:7px;border-radius:99px;
+    background:var(--signal);
+    box-shadow:0 0 6px 1px rgba(232,71,43,.5);
+  }
+
+  /* ── How Thursday Works ────────────────────────────────────────────── */
+  .how-head{max-width:780px;margin-bottom:56px}
+  .how-head p.intro{
+    font-size:18px;line-height:1.5;
+    color:var(--ink);
+    margin:18px 0 0;
+    max-width:680px;
+  }
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .step{
+    border:1px solid var(--rule);
+    border-radius:18px;
+    padding:34px 30px;
+    background:var(--bone);
+    display:flex;flex-direction:column;gap:16px;
+    position:relative;
+  }
+  .step .num{
+    font-family:'JetBrains Mono';
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink);
+    display:inline-flex;align-items:center;gap:9px;
+  }
+  .step h3{font-size:21px;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:balance}
+  .step p{font-size:16px;line-height:1.55;color:var(--mid);margin:0}
+  .how-foot{
+    margin-top:52px;
+    display:flex;flex-direction:column;gap:26px;
+    align-items:flex-start;
+  }
+  .how-note{
+    display:flex;flex-wrap:wrap;gap:10px 22px;
+    align-items:center;
+    color:var(--mid);
+  }
+  .how-note .item{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'JetBrains Mono';
+    text-transform:uppercase;letter-spacing:.12em;
+    font-size:12px;
+    color:var(--ink);
+  }
+  .how-note .item .dot{width:6px;height:6px}
+
+  /* dark variant — "Not a webinar. A room." */
+  .dark .how-head h2{color:var(--bone)}
+  .dark .step{
+    background:rgba(244,242,238,.04);
+    border:1px solid rgba(244,242,238,.12);
+  }
+  .dark .step .num{color:var(--bone)}
+  .dark .step h3{color:var(--bone)}
+  .dark .step p{color:rgba(244,242,238,.62)}
+  .dark .how-note .item{color:var(--bone)}
+
+  @media (max-width: 900px){
+    .steps{grid-template-columns:1fr}
+  }
+
+  /* ── Why I host (was: about) ───────────────────────────────────────── */
   .section-divider{
     width:min(var(--max),calc(100% - var(--pad)*2));
     height:1px;
@@ -471,69 +505,17 @@
     max-width:620px;
   }
   .about-copy p:last-child{margin:0}
+  .about-copy p.kicker{
+    font-size:20px;line-height:1.45;font-weight:500;letter-spacing:-.01em;
+    margin-top:28px;padding-top:24px;border-top:1px solid var(--rule);
+    max-width:560px;
+  }
 
   .portrait.filled{background-image:none;border:0}
   .portrait.filled::after{display:none}
   .portrait.filled img{width:100%;height:100%;object-fit:cover;display:block}
 
-  .jake-section{
-    background:#d8d5cf;
-    padding:clamp(72px,9vw,110px) 0;
-    position:relative;
-    overflow:hidden;
-  }
-  .jake-horizon{
-    position:absolute;
-    left:0;right:0;bottom:0;
-    width:100%;
-    height:140px;
-    pointer-events:none;
-    z-index:0;
-    color:#d8d5cf;
-  }
-  .jake-section .wrap{position:relative;z-index:1}
-  @media (max-width: 900px){
-    .jake-horizon{height:90px}
-  }
-  .jake-band{
-    display:grid;
-    grid-template-columns:minmax(0,.7fr) minmax(0,1fr);
-    gap:56px;
-    align-items:center;
-  }
-  .jake-portrait{
-    aspect-ratio:3/2;
-    width:100%;
-    border-radius:8px;
-  }
-  .jake-portrait.filled img{object-position:center 30%}
-  .jake-portrait::after{
-    font-size:10px;
-  }
-  .jake-eyebrow{
-    color:var(--ink);
-    margin-bottom:28px;
-  }
-  .jake-eyebrow .dot{
-    background:var(--signal);
-    box-shadow:0 0 5px 1px rgba(232,71,43,.55);
-    width:6px;height:6px;
-  }
-  .jake-copy h3{
-    font-size:clamp(22px,2.4vw,28px);
-    letter-spacing:-.015em;
-    margin:0 0 14px;
-    max-width:540px;
-    text-wrap:balance;
-  }
-  .jake-copy p{
-    font-size:17px;line-height:1.55;
-    color:var(--ink);
-    margin:0;
-    max-width:540px;
-  }
-
-  /* ── Connect ───────────────────────────────────────────────────────── */
+  /* ── See It In Action (was: connect) ───────────────────────────────── */
   .connect-head{
     margin-bottom:56px;
     max-width:1080px;
@@ -581,6 +563,10 @@
   .ccard.c-podcast   .cbg::after{background:linear-gradient(180deg, rgba(15,14,16,.55) 0%, rgba(15,14,16,.25) 35%, rgba(15,14,16,.65) 75%, rgba(15,14,16,.9) 100%)}
   .ccard.c-instagram .cbg::after{background:linear-gradient(180deg, rgba(15,14,16,.55) 0%, rgba(15,14,16,.25) 35%, rgba(15,14,16,.65) 75%, rgba(15,14,16,.9) 100%)}
   .ccard .photo-label{display:none}
+
+  /* cards: solid black, no background photo (intentional) */
+  .ccard .cbg{background-image:none !important;background:var(--ink) !important}
+  .ccard .cbg::after{display:none}
   .ccard:hover{
     transform:translateY(-2px);
     box-shadow:0 24px 50px -20px rgba(15,14,16,.45);
@@ -609,8 +595,12 @@
   }
   .cta .arr{display:inline-block;transition:transform .2s ease;color:var(--signal)}
   .cta:hover .arr{transform:translateX(4px)}
+  .connect-foot{
+    margin-top:44px;
+    display:flex;justify-content:center;
+  }
 
-  /* ── Map / second opt-in (dark) ────────────────────────────────────── */
+  /* ── Map / final CTA (dark) ────────────────────────────────────────── */
   .map{
     background:var(--ink);
     color:var(--bone);
@@ -621,19 +611,19 @@
   }
   .map-bg{
     position:absolute;inset:0;z-index:-2;
-    background-image:url('images/opt-in.webp');
+    background-image:url('images/opt-in-loft.jpg');
     background-size:cover;
-    background-position:center 40%;
+    background-position:center center;
     background-repeat:no-repeat;
   }
   @media (max-width: 768px){
-    .map-bg{background-image:url('images/opt-in-mobile.jpg')}
+    .map-bg{background-image:url('images/opt-in-loft.jpg')}
   }
   .map-bg::after{
     content:"";position:absolute;inset:0;
     background:
-      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(15,14,16,.55), rgba(15,14,16,.78) 80%),
-      linear-gradient(180deg, rgba(15,14,16,.55) 0%, rgba(15,14,16,.45) 50%, rgba(15,14,16,.7) 100%);
+      radial-gradient(ellipse 85% 75% at 50% 50%, rgba(15,14,16,.34), rgba(15,14,16,.58) 78%),
+      linear-gradient(180deg, rgba(15,14,16,.55) 0%, rgba(15,14,16,.40) 30%, rgba(15,14,16,.46) 62%, rgba(15,14,16,.66) 100%);
   }
   .map-photo-label{
     position:absolute;right:24px;bottom:18px;
@@ -661,6 +651,59 @@
     max-width:560px;
     margin:28px auto 0;
     font-size:12px;
+  }
+
+  /* signup form (final CTA) */
+  .signup{
+    display:flex;flex-direction:column;gap:14px;
+    max-width:520px;
+    margin:10px auto 0;
+    text-align:left;
+  }
+  .signup .row{display:flex;gap:12px}
+  .signup .row .field{flex:1;min-width:0}
+  .signup .field{display:flex;flex-direction:column}
+  .signup label{
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(244,242,238,.6);
+    margin-bottom:8px;
+  }
+  .signup label .optional{
+    font-family:'Inter Tight',sans-serif;
+    text-transform:none;letter-spacing:0;
+    font-size:12px;color:rgba(244,242,238,.4);
+  }
+  .signup input,
+  .signup textarea{
+    width:100%;
+    background:rgba(244,242,238,.06);
+    border:1px solid rgba(244,242,238,.18);
+    color:var(--bone);
+    font:500 15px/1.5 'Inter Tight',sans-serif;
+    padding:13px 15px;
+    border-radius:8px;
+    outline:none;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .signup textarea{resize:vertical;min-height:84px}
+  .signup input::placeholder,
+  .signup textarea::placeholder{color:rgba(244,242,238,.42)}
+  .signup input:focus,
+  .signup textarea:focus{border-color:var(--signal);background:rgba(244,242,238,.09)}
+  .signup .btn{width:100%;border-radius:8px;padding:16px 20px;margin-top:2px;font-size:16px}
+  .form-success{
+    max-width:520px;margin:10px auto 0;
+    border:1px solid rgba(244,242,238,.18);
+    background:rgba(244,242,238,.05);
+    border-radius:14px;
+    padding:30px 26px;
+    text-align:center;
+  }
+  .form-success h3{color:var(--bone);font-size:22px;margin:0 0 8px;font-weight:600}
+  .form-success p{color:rgba(244,242,238,.8);font-size:15px;line-height:1.5;margin:0}
+  @media (max-width: 560px){
+    .signup .row{flex-direction:column;gap:14px}
   }
 
   /* ── footer ────────────────────────────────────────────────────────── */
@@ -724,14 +767,10 @@
     .hero{justify-content:flex-start;min-height:auto}
     .hero-inner{padding:128px 0 80px}
     .hero-grid{grid-template-columns:1fr;gap:48px}
-    .block-body{font-size:16px}
-    .hero-aside{order:2}
     .why-inner{grid-template-columns:1fr;gap:32px}
     .why-lede{position:static}
     .why-body p.kicker{font-size:20px;margin-top:20px;padding-top:22px}
     .about-zach{grid-template-columns:1fr;gap:36px}
-    .jake-band{grid-template-columns:1fr;gap:24px}
-    .jake-portrait{max-width:420px}
     .portrait{max-width:340px}
     .connect-grid{grid-template-columns:1fr}
     .signup{flex-direction:column;max-width:420px}
@@ -742,8 +781,9 @@
     .foot-social{justify-content:center}
   }
   @media (max-width: 900px){
-    .hero h1{font-size:clamp(36px,7.2vw,52px) !important;width:100% !important}
+    .hero h1{font-size:clamp(36px,7.6vw,56px) !important;width:100% !important}
     .hero .trust{flex-wrap:wrap;justify-content:center;max-width:560px;margin-left:auto;margin-right:auto;font-size:12px}
+    .hero-cta{justify-content:center}
   }
 </style>
 
@@ -763,7 +803,7 @@
   <div class="wrap nav">
     <a class="wordmark" href="#top" aria-label="Move Right"><img src="assets/logo-horizontal.webp" alt="Move Right" width="500" height="140" decoding="async" fetchpriority="high" /></a>
     <nav class="nav-right">
-      <a class="btn ghost" href="#map" style="border-radius: 5px">Move Right →</a>
+      <a class="btn ghost cta-luma" href="https://luma.com/to8lvtso" target="_blank" rel="noopener" style="border-radius: 5px; white-space: nowrap">Join Us Thursday →</a>
     </nav>
   </div>
 </header>
@@ -771,37 +811,30 @@
 <!-- ────────────────────────────── HERO ───────────────────────────── -->
 <section class="hero" id="top" data-screen-label="01 Hero">
   <picture class="hero-bg" aria-hidden="true">
-    <img src="assets/hero.webp" alt="" fetchpriority="high" decoding="async" />
+    <img src="assets/hero-fork.jpg" alt="" fetchpriority="high" decoding="async" />
   </picture>
-
 
   <div class="wrap hero-inner">
     <div class="hero-grid">
 
-      <!-- LEFT: headline + lead + email -->
       <div>
         <p class="mono eyebrow on-dark hero-eyebrow reveal">
           <span class="dot"></span>
-          <span style="font-size: 16px">MOVE RIGHT WEEKLY</span>
+          <span style="font-size: 16px">EVERY THURSDAY @ 12PM ET</span><span class="sep">•</span><span style="font-size: 16px">LIVE, VIRTUAL</span>
         </p>
 
-        <h1 class="reveal d1" style="font-size: clamp(40px,6.4vw,80px); font-weight: 700; line-height: 1.04; letter-spacing: -0.02em; width: 100%; margin-left: auto; margin-right: auto">When what we want isn't normal, what we do can't be either<span style="color:var(--signal)">.</span></h1>
+        <h1 class="reveal d1" style="font-size: clamp(40px,6.4vw,80px); font-weight: 700; line-height: 1.02; letter-spacing: -0.02em; width: 100%; margin-left: auto; margin-right: auto">What's your next move?</h1>
 
-        <p class="hero-lead reveal d2" style="font-size: 21px; font-weight: 400; max-width: 100%">One weekly email for people who want more than default outcomes.</p>
+        <p class="hero-lead reveal d2" style="font-size: 21px">A weekly gathering for leaders and entrepreneurs wrestling with their next right move <span class="accent">in business and in life.</span></p>
 
-        <form class="signup reveal d3" id="hero-form"
-              action="https://letters.moveright.me/subscribe"
-              method="get"
-              data-source="hero">
-          <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required style="border-radius: 5px; margin: 0px" />
-          <button class="btn" type="submit" style="border-radius: 5px">Subscribe →</button>
-        </form>
+        <div class="hero-cta reveal d3">
+          <a class="btn cta-luma" href="https://luma.com/to8lvtso" target="_blank" rel="noopener">Join Us Thursday →</a>
+        </div>
 
         <p class="mono trust reveal d3">
           <span class="dot sm"></span>
           <span style="font-size: 14px">Free</span><span class="sep">•</span>
-          <span style="font-size: 14px">No spam</span><span class="sep">•</span>
-          <span style="font-size: 14px">Unsubscribe any time</span>
+          <span style="font-size: 14px">No pitch</span>
         </p>
       </div>
 
@@ -809,15 +842,15 @@
   </div>
 </section>
 
-<!-- ────────────────────── WHY THIS EXISTS ────────────────────────── -->
-<section class="light" id="why" data-screen-label="02 Why">
+<!-- ────────────────────── FORK IN THE ROAD ───────────────────────── -->
+<section class="light" id="fork" data-screen-label="02 Fork">
   <div class="wrap">
     <div class="why-inner">
       <div class="why-lede">
         <p class="mono eyebrow section-eyebrow reveal">
-          <span class="dot"></span><span style="font-weight: 400; font-size: 16px">THE REALITY</span>
+          <span class="dot"></span><span style="font-weight: 400; font-size: 16px">THE MOMENT</span>
         </p>
-        <h2 class="reveal d1">If we do what everyone else does, we get what everyone else gets<span style="color:#e8472b">.</span></h2>
+        <h2 class="reveal d1">Are you at a fork in the road?</h2>
 
         <div class="why-mark reveal d3" aria-hidden="true">
           <span class="label">MOVE RIGHT</span>
@@ -827,162 +860,174 @@
       </div>
 
       <div class="why-body">
-        <p class="reveal d2" style="font-weight: 400">If we want something different, we must think, believe, be, and do something different.</p>
+        <p class="reveal d2" style="font-weight: 400">You're capable, driven, and good at figuring things out on your own.</p>
 
-        <p class="reveal d2" style="font-weight: 400">We must question the default assumptions and judge the ideas we're constantly being sold by their outcomes.</p>
+        <p class="reveal d2" style="font-weight: 400">But even the highest capacity people can find themselves stuck, not sure what their next move should be.</p>
 
-        <p class="reveal d2" style="font-weight: 400">And that's what <strong>Move Right<span style="color:#e8472b">.</span></strong> is all about.</p>
+        <p class="reveal d2" style="font-weight: 400; margin-bottom: 16px">Lately, you might be:</p>
+
+        <ul class="fork-list reveal d2">
+          <li>Weighing a career or business change</li>
+          <li>Facing a huge business decision you're not sure about</li>
+          <li>Successful, but sensing there's "more"</li>
+          <li>Trying to see what to do next, clearly</li>
+          <li>Struggling to balance work, family, finances, and faith</li>
+        </ul>
+
+        <p class="kicker reveal d2">You're not looking for more information. You're looking for the right next move<span style="color:#e8472b">.</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────────────────────────── ABOUT ──────────────────────────── -->
-<section class="light" id="about" data-screen-label="03 About" style="padding-top:0">
-  <hr class="section-divider reveal" />
+<!-- ────────────────────── HOW THURSDAY WORKS ─────────────────────── -->
+<section class="dark" id="how" data-screen-label="03 What You're Walking Into">
   <div class="wrap">
+    <div class="how-head">
+      <p class="mono eyebrow on-dark section-eyebrow reveal">
+        <span class="dot"></span><span style="font-size: 16px">WHAT YOU'RE WALKING INTO</span>
+      </p>
+      <h2 class="reveal d1">Not a webinar. A room<span style="color:#e8472b">.</span></h2>
+    </div>
 
-    <!-- Zach block -->
+    <div class="steps">
+      <div class="step reveal">
+        <p class="num"><span class="dot"></span>THE ROOM</p>
+        <h3>A small group of high-capacity people.</h3>
+        <p>Founders, operators, and leaders working through real decisions in real time, with each other.</p>
+      </div>
+      <div class="step reveal d1">
+        <p class="num"><span class="dot"></span>THE FORMAT</p>
+        <h3>You bring something you're actually wrestling with.</h3>
+        <p>We think through it together, out loud, exploring good questions to find better answers.</p>
+      </div>
+      <div class="step reveal d2">
+        <p class="num"><span class="dot"></span>WHAT YOU LEAVE WITH</p>
+        <h3>Clarity you couldn't reach alone.</h3>
+        <p>That, and a circle of people who can relate, and who want to help you find your next right move.</p>
+      </div>
+    </div>
+
+    <div class="how-foot">
+      <div class="how-note reveal d2">
+        <span class="item"><span class="dot"></span>No gurus</span>
+        <span class="item"><span class="dot"></span>No sales pitches</span>
+      </div>
+      <a class="btn reveal d3 cta-luma" href="https://luma.com/to8lvtso" target="_blank" rel="noopener" style="padding:16px 28px;font-size:16px;border-radius:8px">Join Us Thursday →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────── WHY I HOST ──────────────────────────────── -->
+<section class="light" id="why-host" data-screen-label="04 Who's Hosting">
+  <div class="wrap">
     <div class="about-zach">
       <figure class="portrait filled reveal"><img src="images/zach.webp" alt="Portrait of Zach Kosturos" width="950" height="1110" loading="lazy" decoding="async" /></figure>
 
       <div class="about-copy">
         <p class="mono eyebrow section-eyebrow reveal">
-          <span class="dot"></span><span style="font-weight: 400; font-size: 16px">ABOUT ME</span>
+          <span class="dot"></span><span style="font-weight: 400; font-size: 16px">WHO'S HOSTING</span>
         </p>
-        <h2 class="reveal d1">I'm Zach<span style="color:#e8472b">.</span></h2>
+        <h2 class="reveal d1">Hey, I'm Zach Kosturos<span style="color:#e8472b">.</span></h2>
 
-        <p class="reveal d2">I got married when I was 20. I bought a business when I was 25, in the heart of the Great Recession. My wife and I are about to bring home our sixth child. Four years ago, we left everything we knew and moved to Montana. Last year, we moved again, this time to Florida. </p>
+        <p class="reveal d2">Big next-move decisions are kind of my thing. I got married at twenty. Raised a big family. Moved across the country, twice. Built businesses and allocated millions in capital. Every one was the kind of call a lot of people freeze on.</p>
 
-        <p class="reveal d2">There's not much we do that fits in "the box". Because, for as long as I can remember, "the box" never sounded that good to me. I have always been interested in what's possible more than what's normal. </p>
+        <p class="reveal d2">Through it all, here's what I've come to believe. Every meaningful decision is really an allocation decision. The hard part is rarely a shortage of options. It's seeing clearly which one is worth your time, money, and energy.</p>
 
-        <p class="reveal d2">And that's why I started <strong>Move Right<span style="color:#e8472b">.</span></strong></p>
-
-        <p class="reveal d2">To think publicly about which ideas and ways of living and being lead to greater possibilities, and which ones don't.</p>
+        <p class="kicker reveal d2"><strong style="font-weight:700">Move Right<span style="color:#e8472b">.</span></strong> brings that discipline to a room. A handful of capable people, deciding what's next, together.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─────────────────────── AND JAKE ────────────────────── -->
-<section class="jake-section" data-screen-label="03b And Jake">
-  <!-- horizon motif - layered ridges with a tiny pilgrim + red star -->
-  <svg class="jake-horizon" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <!-- far ridge -->
-    <path d="M0,150 C180,118 360,138 540,124 C720,112 900,138 1080,122 C1240,108 1360,128 1440,124 L1440,200 L0,200 Z" fill="#c2bfb7"/>
-    <!-- middle ridge -->
-    <path d="M0,168 C200,148 380,162 580,150 C760,140 940,166 1140,150 C1300,138 1380,160 1440,156 L1440,200 L0,200 Z" fill="#a8a59e"/>
-    <!-- near ridge -->
-    <path d="M0,184 C220,170 420,184 640,178 C820,172 1000,184 1200,180 C1340,176 1410,184 1440,182 L1440,200 L0,200 Z" fill="#8a8780"/>
-    <!-- the star -->
-    <circle cx="1040" cy="56" r="6" fill="#E8472B"/>
-  </svg>
-  <div class="wrap">
-    <div class="jake-band">
-      <figure class="portrait filled jake-portrait reveal"><img src="images/jake.webp" alt="Portrait of Jake, co-host of the Move Right podcast" width="1400" height="933" loading="lazy" decoding="async" /></figure>
-
-      <div class="jake-copy">
-        <p class="mono eyebrow jake-eyebrow reveal">
-          <span class="dot"></span><span>About Jake</span>
-        </p>
-        <h3 class="reveal d1" style="margin: 28px 0px 14px">Jake is part of the ongoing conversations and mission behind Move Right<span style="color:#e8472b">.</span></h3>
-        <p class="reveal d2">His perspective, curiosity, and real-life pursuits help sharpen ideas, challenge assumptions, and keep the conversations relevant and honest. <strong>Move Right<span style="color:#e8472b">.</span></strong> is better because he’s part of it.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ────────────────────────────── CONNECT ────────────────────────── -->
-<section class="light" id="connect" data-screen-label="04 Connect">
+<!-- ────────────────────── SEE IT IN ACTION ───────────────────────── -->
+<section class="light" id="content" data-screen-label="05 In the Meantime" style="padding-top:0">
+  <hr class="section-divider reveal" />
   <div class="wrap">
 
     <div class="connect-head">
       <p class="mono eyebrow section-eyebrow reveal">
-        <span class="dot"></span><span style="font-size: 16px">WHAT WE LOOK FOR</span>
+        <span class="dot"></span><span style="font-size: 16px">IN THE MEANTIME</span>
       </p>
-      <h2 class="reveal d1">We look for what leads to uncommon outcomes<span style="color:#e8472b">.</span></h2>
-      <p class="intro reveal d2">Across faith, relationships, health, work, money, and time, we’re searching for what leads to a life marked by realizing what's possible instead of what we're told is normal.</p>
+      <h2 class="reveal d1">Not able to join us this week<span style="color:#0f0e10">?</span></h2>
+      <p class="intro reveal d2">No problem. Here's where I think out loud the rest of the week. Get a feel for how I see things before you join us, or just stay connected between Thursdays.</p>
     </div>
 
     <div class="connect-grid">
 
       <!-- YouTube -->
-      <a class="ccard c-youtube reveal" href="#map">
+      <a class="ccard c-youtube reveal" href="https://www.youtube.com/@ZKosturos" target="_blank" rel="noopener">
         <span class="cbg" aria-hidden="true"></span>
-        <span class="photo-label mono">[ YouTube - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>DESTINATION</span></p>
-        <h3>Decide Where You're Trying To Go.</h3>
-        <p>Stop and ask where you are actually trying to go.  If it's somewhere most don't, your plan has to change.</p>
-        <span class="cta">Define The Destination
+        <p class="mono eyebrow label"><span class="dot"></span><span>YOUTUBE</span></p>
+        <h3>Where I think out loud, in video format.</h3>
+        <p>Where I unpack the questions, ideas, decisions, and patterns I'm working through.</p>
+        <span class="cta">Watch on YouTube
 →</span>
       </a>
 
       <!-- Podcast -->
-      <a class="ccard c-podcast reveal d1" href="#map">
+      <a class="ccard c-podcast reveal d1" href="https://podcasts.apple.com/us/podcast/move-right/id1887582866" target="_blank" rel="noopener">
         <span class="cbg" aria-hidden="true"></span>
-        <span class="photo-label mono">[ Podcast - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>DIRECTION</span></p>
-        <h3>Examine The Direction You’re Moving.</h3>
-        <p>Discern where your current thinking, believing, being, and doing is holding you back from what's possible?</p>
-        <span class="cta">Examine The Direction
+        <p class="mono eyebrow label"><span class="dot"></span><span>PODCAST</span></p>
+        <h3>The Move Right podcast.</h3>
+        <p>The same thinking, made for a drive or a walk. Listen wherever you already do.</p>
+        <span class="cta">Listen to the podcast
 →</span>
       </a>
 
       <!-- X -->
-      <a class="ccard c-x reveal d2" href="#map">
+      <a class="ccard c-x reveal d2" href="https://x.com/zkosturos" target="_blank" rel="noopener">
         <span class="cbg" aria-hidden="true"></span>
-        <span class="photo-label mono">[ X - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>DISCERNMENT</span></p>
-        <h3>Find What Actually Works.</h3>
-        <p>Some ways of thinking and living consistently lead somewhere better. Learn to recognize them.</p>
-        <span class="cta">Find What Leads To The Destination
+        <p class="mono eyebrow label"><span class="dot"></span><span>X</span></p>
+        <h3>The thinking as it forms.</h3>
+        <p>Quick thoughts and questions, posted as they come up.</p>
+        <span class="cta">Follow on X
 →</span>
       </a>
 
       <!-- Instagram -->
-      <a class="ccard c-instagram reveal d3" href="#map">
+      <a class="ccard c-instagram reveal d3" href="https://www.instagram.com/zkosturos/" target="_blank" rel="noopener">
         <span class="cbg" aria-hidden="true"></span>
-        <span class="photo-label mono">[ Instagram - drop image ]</span>
-        <p class="mono eyebrow label"><span class="dot"></span><span>ACTION</span></p>
-        <h3>Move Decisively.</h3>
-        <p>Start your journey, moving in the right direction, toward what's possible.</p>
-        <span class="cta">Move Right
+        <p class="mono eyebrow label"><span class="dot"></span><span>INSTAGRAM</span></p>
+        <h3>Shorter form, visual format.</h3>
+        <p>Clips and visuals, the ideas distilled into something you can catch in a scroll.</p>
+        <span class="cta">Follow on Instagram
 →</span>
       </a>
 
     </div>
+
   </div>
 </section>
 
-<!-- ────────────────────── THE MAP / SECOND OPT-IN ────────────────── -->
-<section class="map" id="map" data-screen-label="05 The Map">
+<!-- ────────────────────── FINAL CTA ──────────────────────────────── -->
+<section class="map" id="join" data-screen-label="06 Save My Seat">
   <div class="map-bg" aria-hidden="true"></div>
 
   <div class="wrap">
     <div class="map-inner" style="max-width: 1040px">
 
       <p class="mono eyebrow on-dark section-eyebrow reveal">
-        <span class="dot" style="margin: 0px 0px 20px"></span><span style="font-size: 16px; margin: 0px 0px 20px">MOVE RIGHT WEEKLY</span>
+        <span class="dot"></span><span style="font-size: 16px">THURSDAYS</span><span class="sep">·</span><span style="font-size: 16px">12PM ET</span>
       </p>
 
-      <h2 class="reveal d1" style="margin: 0px 0px 32px; font-size: clamp(34px,5.2vw,64px); line-height: 1.05; letter-spacing: -0.02em">Ready to move towards what's possible?</h2>
+      <h2 class="reveal d1" style="margin: 0px 0px 28px; font-size: clamp(34px,5.2vw,64px); line-height: 1.05; letter-spacing: -0.02em">Save your seat for Thursday<span style="color:#e8472b">.</span></h2>
 
-      <p class="reveal d2" style="margin: 0px auto 28px; font-size: 20px">One weekly email for people who want more than default outcomes.</p>
+      <p class="reveal d2" style="margin: 0px auto 10px; font-size: 20px">Bring the decision you're wrestling with. Leave with a clearer sense of your next move.</p>
 
-      <form class="signup reveal d3" id="map-form"
-            action="https://letters.moveright.me/subscribe"
-            method="get"
-            data-source="map">
-        <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required />
-        <button class="btn" type="submit" style="padding: 14px 20px; margin: 0px">Subscribe →</button>
-      </form>
+      <p class="reveal d2" style="margin: 0px auto 30px; font-size: 16px; color: rgba(244,242,238,.8); max-width: 560px">I'm keeping the room small for now, so seats are limited. Reserve your spot and I'll see you Thursday.</p>
+
+      <!-- All "Join" / "Save My Seat" buttons point to your Luma event.
+           UPDATE WEEKLY in ONE place: the LUMA_URL constant in the script near the bottom of this file. -->
+      <div class="reveal d3" style="margin-top: 8px">
+        <a class="btn cta-luma" id="join-cta" href="https://luma.com/to8lvtso" target="_blank" rel="noopener" style="padding:17px 34px;font-size:17px;border-radius:8px">Save My Seat →</a>
+      </div>
 
       <p class="mono trust reveal d3">
         <span class="dot sm"></span>
         <span style="font-size: 14px">Free</span><span class="sep">•</span>
-        <span style="font-size: 14px">No spam</span><span class="sep">•</span>
-        <span style="font-size: 14px">Unsubscribe any time</span>
+        <span style="font-size: 14px">LIVE, VIRTUAL</span><span class="sep">•</span>
+        <span style="font-size: 14px">Seats are limited</span>
       </p>
 
     </div>
@@ -990,7 +1035,7 @@
 </section>
 
 <!-- ────────────────────────────── FOOTER ─────────────────────────── -->
-<footer data-screen-label="06 Footer">
+<footer data-screen-label="07 Footer">
   <div class="wrap foot">
     <a class="foot-mark" href="#top" aria-label="Move Right"><img src="assets/logo-horizontal-black.webp" alt="Move Right" width="500" height="140" loading="lazy" decoding="async" /></a>
 
@@ -1026,6 +1071,16 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // ────────────────────────────────────────────────────────
+  // UPDATE WEEKLY: paste the next gathering's Luma event URL here.
+  // Every "Join Us Thursday" / "Save My Seat" button uses this one value.
+  const LUMA_URL = "https://luma.com/to8lvtso";
+  document.querySelectorAll('.cta-luma').forEach(a => {
+    a.href = LUMA_URL;
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+
   // reveal-on-scroll (respect reduced motion)
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) {
@@ -1041,46 +1096,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
-
-  // ── Substack form handler (handoff) ──────────────────────────────────
-  // Hands the user off to Substack's own /subscribe page with the email and
-  // a UTM source prefilled. Substack handles confirmation and the welcome
-  // email; the user lands on a Substack-branded page after one click.
-  //
-  // If JS is disabled, the form still works: it's a native GET form pointing
-  // at /subscribe, so the email submits as a query param the same way.
-  document.querySelectorAll('form.signup').forEach(f => {
-    f.addEventListener('submit', e => {
-      const input = f.querySelector('input');
-      if (!input || !input.value) return; // let the browser show its required-field hint
-
-      e.preventDefault();
-      const btn = f.querySelector('button');
-
-      // Build the handoff URL: email + UTM tags so Substack analytics can
-      // tell hero vs map signups apart.
-      const params = new URLSearchParams({
-        email: input.value,
-        utm_source: 'moveright.me',
-        utm_medium: f.dataset.source || 'signup'
-      });
-      // Open Substack in a NEW tab so the user keeps our page (and our
-      // instructions) in front of them.
-      window.open(f.action + '?' + params.toString(), '_blank', 'noopener');
-
-      // Reset the email field into a big, obvious reminder telling the user
-      // exactly what to do on the tab that just opened. People miss the
-      // second step constantly without this.
-      input.value = '';
-      input.placeholder = 'Did you Subscribe on the page that opened?';
-      input.blur();
-      input.classList.add('handoff-reminder');
-
-      // Match the button so the whole form reads "done on this side".
-      btn.disabled = true;
-      btn.innerHTML = "Check the new tab →";
-    });
-  });
 </script>
 
 </body>
