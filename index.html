@@ -781,9 +781,23 @@
     .foot-social{justify-content:center}
   }
   @media (max-width: 900px){
-    .hero h1{font-size:clamp(36px,7.6vw,56px) !important;width:100% !important}
+    .hero h1{font-size:clamp(44px,11.5vw,60px) !important;width:100% !important}
+    .map-inner h2{font-size:clamp(40px,9vw,60px) !important;line-height:1.02 !important}
     .hero .trust{flex-wrap:wrap;justify-content:center;max-width:560px;margin-left:auto;margin-right:auto;font-size:12px}
     .hero-cta{justify-content:center}
+  }
+
+  /* ── small phones: shrink the bumped-up mono labels so they wrap cleanly ── */
+  @media (max-width: 600px){
+    .hero-eyebrow{flex-wrap:wrap;justify-content:center;gap:8px;row-gap:6px}
+    .hero-eyebrow > span:not(.dot):not(.sep){font-size:12px !important;letter-spacing:.1em}
+    .hero-eyebrow .sep{margin:0 4px !important}
+    .hero .trust > span:not(.dot):not(.sep){font-size:12px !important}
+
+    .map-inner .section-eyebrow{flex-wrap:wrap;justify-content:center;gap:8px}
+    .map-inner .section-eyebrow > span:not(.dot):not(.sep){font-size:12px !important;letter-spacing:.1em}
+    .map-inner .trust{font-size:11px;gap:8px}
+    .map-inner .trust > span:not(.dot):not(.sep){font-size:11px !important;letter-spacing:.08em}
   }
 </style>
 
