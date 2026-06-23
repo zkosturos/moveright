@@ -1,6 +1,6 @@
-# https://moveright.me/robots.txt
+# https://www.moveright.me/robots.txt
 
 User-agent: *
 Allow: /
 
-Sitemap: https://moveright.me/sitemap.xml
+Sitemap: https://www.moveright.me/sitemap.xml
